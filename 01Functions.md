@@ -52,6 +52,25 @@ $$exp(x)=e^x$$
 ```
 ![01-02 plot of a exponential function](images/01-02expfunction.png)
 
+注意到，上面的Python中定义中，我们只是利用了numpy中现成的欧拉常数$$e$$,如果没有这个神奇的常数，我们是否就无法定义指数函数了呢？答案是否定的：   
+```
+    def exp2(x):
+        sum = 0
+        for k in range(100):
+            sum += float(x**k)/np.math.factorial(k)
+        return sum
+    
+    print exp(1)
+    2.718281828459045
+    
+    print exp2(1)
+    2.7182818284590455
+```   
+上面定义中的奇妙公式：  
+$$e^x = \sum_{k = 0}^{\infty}\frac{x^k}{k!}$$  
+究竟是从何而来，又为何是这样的，将是本书讨论的重点之一。
+
+
 3.**对数函数(Logarithmic Functions)**:  
 $$log_{e}(x)=ln(x)$$  
 对数函数是指数函数的反函数，其定义域为$$(0,\infty)$$，值域$$(-\infty,\infty)$$。   
@@ -65,8 +84,16 @@ numpy为我们提供了以$$2,e,10$$为底的对数函数：
 ```
 ![01-03 plot of three logarithmic functions](images/01-03logfunction.png)
 
+4.**三角函数(Trigonometric Functions)**:  
+周期性是三角函数的特点之一，同时不同三角函数的值域和定义域也需要我们牢记，下面是Python绘制的一些三角函数的函数图：
+```
+    plt.plot(np.linspace(-2*np.pi,2*np.pi),np.sin(np.linspace(-2*np.pi,2*np.pi)))
+```
+![01-04 plot of sin](images/01-04sin.png)  
+```
+    plt.plot(np.linspace(-2*np.pi,2*np.pi),np.cos(np.linspace(-2*np.pi,2*np.pi)))
+```  
+![01-05 plot of cos](images/01-05cos.png)   
 
 
-4.**三角函数(Trigonometric Functions)** 
-
-
+这里我们没有给出对数函数和三角函数的数学表达式，没有告诉大家如何在Python中定义自己的对数函数和三角函数。这并不表述我们没法这么做,想指数函数一样，我们会在后面章节为读者揭开这些奇妙函数背后的故事。
