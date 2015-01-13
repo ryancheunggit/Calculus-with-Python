@@ -61,11 +61,11 @@ $$exp(x)=e^x$$
             sum += float(x**k)/np.math.factorial(k)
         return sum
     
-    print exp(1)
-    2.718281828459045
+    print exp(1), exp(2), exp(3)
+    2.718281828459045 7.38905609893 20.0855369232
     
-    print exp2(1)
-    2.7182818284590455
+    print exp2(1), exp2(2), exp2(3)
+    2.7182818284590455 7.38905609893 20.0855369232
 ```   
 上面定义中的奇妙公式：  
 $$e^x = \sum_{k = 0}^{\infty}\frac{x^k}{k!}$$  
