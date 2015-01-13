@@ -53,7 +53,7 @@ $$exp(x)=e^x$$
 ```
 ![01-02 plot of a exponential function](images/01-02expfunction.png)
 
-注意到，上面的Python中定义中，我们只是利用了numpy中现成的欧拉常数$$e$$,如果没有这个神奇的常数，我们是否就无法定义指数函数了呢？答案是否定的：   
+注意到，上面的Python定义中，我们只是利用了numpy中现成的欧拉常数$$e$$,如果没有这个神奇的常数，我们是否就无法定义指数函数了呢？答案是否定的：   
 ```
     def exp2(x):
         sum = 0
