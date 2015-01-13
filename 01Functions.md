@@ -31,8 +31,8 @@ $$f(x)=x^3-5x^2+9$$
 ```
 ![01-01 plot of a polynomial function](images/01-01.png)
 
-2.**指数函数(Exponential Functions)**  
-$$exp(x)=e^x$$
+2.**指数函数(Exponential Functions)**:   
+$$exp(x)=e^x$$  
 其定义域为$$(-\infty,\infty)$$，值域为$$(0,\infty)$$。在Python中，可以如下方式定义指数函数：  
 ```
     def exp(x):
@@ -41,7 +41,7 @@ $$exp(x)=e^x$$
     print exp(2)
     7.3890560989306495
 ```
-或者可以使用numpy模块自带的指数函数  
+或者可以使用numpy自带的指数函数  
 ```
     print np.exp(2)
     7.3890560989306495
@@ -52,8 +52,21 @@ $$exp(x)=e^x$$
 ```
 ![01-02 plot of a exponential function](images/01-02expfunction.png)
 
+3.**对数函数(Logarithmic Functions)**:  
+$$log_{e}(x)=ln(x)$$  
+对数函数是指数函数的反函数，其定义域为$$(0,\infty)$$，值域$$(-\infty,\infty)$$。   
+numpy为我们提供了以$$2,e,10$$为底的对数函数：  
+```
+    x = np.linspace(0,10,100,endpoint = False)
+    y1 = np.log2(x)
+    y2 = np.log(x)
+    y3 = np.log10(x)
+    plt.plot(x,y1,'red',x,y2,'yellow',x,y3,'blue')
+```
+![01-03 plot of three logarithmic functions](images/01-03logfunction.png)
 
-3.
+
+
 4.**三角函数(Trigonometric Functions)** 
 
 
