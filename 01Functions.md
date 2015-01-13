@@ -29,5 +29,5 @@ $$f(x)=x^3-5x^2+9$$
     import matplotlib.pyplot as plt
     plt.plot(x,y)
 ```
-
+![01-01 plot of a polynomial function](images/01-01.png)
 
