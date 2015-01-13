@@ -15,8 +15,8 @@ $$f(x)=x^3-5x^2+9$$
 函数定义好后，我们可以测试一下其是否正确：  
 ```
     print f(3)
-    print f(1)
     -9
+    print f(1)
     5
 ```
 读者可以自行计算一下，与Python中我们所定义函数所给出的结果比较一下。  
@@ -30,4 +30,30 @@ $$f(x)=x^3-5x^2+9$$
     plt.plot(x,y)
 ```
 ![01-01 plot of a polynomial function](images/01-01.png)
+
+2.**指数函数(Exponential Functions)**  
+$$exp(x)=e^x$$
+其定义域为$$(-\infty,\infty)$$，值域为$$(0,\infty)$$。在Python中，可以如下方式定义指数函数：  
+```
+    def exp(x):
+        return np.e**x
+    
+    print exp(2)
+    7.3890560989306495
+```
+或者可以使用numpy模块自带的指数函数  
+```
+    print np.exp(2)
+    7.3890560989306495
+```
+指数函数的函数图：  
+```
+    plt.plot(x, exp(x))
+```
+![01-02 plot of a exponential function](images/01-02expfunction.png)
+
+
+3.
+4.**三角函数(Trigonometric Functions)** 
+
 
