@@ -1,9 +1,9 @@
-[To read this book here](http://ryancheunggit.gitbooks.io/calculus-with-python/content/)  
+[Link to the book](http://ryancheunggit.gitbooks.io/calculus-with-python/content/) click on the chapters in the left panel to read 
 
-[阅读本书请点击](http://ryancheunggit.gitbooks.io/calculus-with-python/content/)
+[本书链接](http://ryancheunggit.gitbooks.io/calculus-with-python/content/) 点击左边章节阅读
 
 谨以此书 献给 我亲爱的家人
 
 更新记录：
-Jan.13 2.1函数
-Jan.14 2.2函数的运算
+Jan.13 2.1函数  
+Jan.14 2.2函数的组合/逆函数
