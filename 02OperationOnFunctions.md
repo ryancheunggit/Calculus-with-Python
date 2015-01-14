@@ -12,14 +12,11 @@
 在Python中我们可以很直观地对函数进行复合：
 
 ```
-    def f(x):
-        return x+1
+    def f(x): return x+1
     
-    def g(x):
-        return x**2
+    def g(x): return x**2
         
-    def h(x):
-        return f(g(x))
+    def h(x): return f(g(x))
         
     x = np.array(range(-10,10))
     
