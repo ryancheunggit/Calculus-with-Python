@@ -2,7 +2,7 @@
 
 [本书链接](http://ryancheunggit.gitbooks.io/calculus-with-python/content/) 点击左边章节阅读
 
-谨以此书 献给 我亲爱的家人
+谨以此书献给我亲爱的家人
 
 更新记录：
 Jan.13 2.1函数  
