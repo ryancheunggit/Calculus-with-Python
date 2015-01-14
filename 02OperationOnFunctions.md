@@ -1,4 +1,4 @@
-#函数的运算(Operations on Functions)
+#函数的复合
 1.**函数的复合（Composition）**:  
 函数$$f$$和$$g$$的复合:$$f\circ g(x)=f(g(x))$$，可以理解为首先将$$x$$输入给函数$$g$$获得输出$$g(x)$$后将其进而输入给函数$$f$$，最终获得结果$$f(g(x))$$。
 
@@ -41,5 +41,7 @@
 
 ![02-02 compFunc2](images/02-02compFunc2.png) 
 
+2. **逆函数（Inverse Function）**:  
+给定一个函数$$f$$，其逆函数$$f^{-1}$$是一个与$$f$$进行复合后会得到$$f\circ f^{-1}(x)=f^{-1} \circ f (x)=x$$的特殊函数。
 
 
