@@ -1,5 +1,5 @@
 #函数的复合
-1.**函数的复合（Composition）**:  
+##**函数的复合（Composition）**:  
 函数$$f$$和$$g$$的复合:$$f\circ g(x)=f(g(x))$$，可以理解为首先将$$x$$输入给函数$$g$$获得输出$$g(x)$$后将其进而输入给函数$$f$$，最终获得结果$$f(g(x))$$。
 
 + 几个函数的复合结果仍然是一个函数:接受输入，给出输出
@@ -41,7 +41,16 @@
 
 ![02-02 compFunc2](images/02-02compFunc2.png) 
 
-2. **逆函数（Inverse Function）**:  
+##**逆函数（Inverse Function）**:  
 给定一个函数$$f$$，其逆函数$$f^{-1}$$是一个与$$f$$进行复合后会得到$$f\circ f^{-1}(x)=f^{-1} \circ f (x)=x$$的特殊函数。
+
+函数与其反函数的函数图一定是关于直线$$y=x$$对称的：
+```
+    w = lambda x: x**2
+    winv = lambda x: sqrt(x)
+    x = np.linspace(0,2,100)
+    plt.plot(x, w(x),'b',x,winv(x),'r',x,x,'g_.')
+```
+![02-03 inverse](images/02-03inverse.png) 
 
 
