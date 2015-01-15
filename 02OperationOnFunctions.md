@@ -69,8 +69,7 @@
 ```
     def composite(f,g):
         return lambda x: f(g(x))
+    h3 = composite(f,g)
+    print sum(h(x)==h3(x))==len(x)
+    True
 ```
-
-
-
-
