@@ -56,7 +56,7 @@
     def horizontal_shift(f,H): return lambda x: f(x-H)
 ```
 
-上面定义的函数$$\text{horizontal_shift}(f,H)$$，接受的输入是一个函数$$f$$个一个实数$$H$$，而输出是一个新的函数，而该函数是将$$f$$沿着水平方向平移了距离$$H$$后得到的。
+上面定义的函数$$\text{horizontal_shift}(f,H)$$，接受的输入是一个函数$$f$$个一个实数$$H$$，而输出是一个新的函数，新函数是将$$f$$沿着水平方向平移了距离$$H$$后得到的。
 
 ```
     x = np.linspace(-10,10,100)
@@ -67,8 +67,7 @@
 
 以高阶函数的观点看去，函数的复合便是将两个函数作为输入给复合函数，然后由其产生一个新的函数作为输出。复合函数可以如此定义：
 ```
-    def composite(f,g):
-        return lambda x: f(g(x))
+    def composite(f,g): return lambda x: f(g(x))
     h3 = composite(f,g)
     print sum(h(x)==h3(x))==len(x)
     True
