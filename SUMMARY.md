@@ -5,3 +5,4 @@
 3. 第一章  函数
    + [函数](01Functions.md)
    + [复合函数](02OperationOnFunctions.md)
+   + [常见函数](03TypesofFunctions.md)
