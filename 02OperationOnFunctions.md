@@ -46,8 +46,31 @@
     w = lambda x: x**2
     winv = lambda x: sqrt(x)
     x = np.linspace(0,2,100)
-    plt.plot(x, w(x),'b',x,winv(x),'r',x,x,'g_.')
+    plt.plot(x, w(x),'b',x,winv(x),'r',x,x,'g-.')
 ```
 ![02-03 inverse](images/02-03inverse.png) 
+
+##**高阶函数**:  
+我们可以不局限于仅将数值作为函数的输入输出，函数本身也可以作为输入和输出。
+```
+    def horizontal_shift(f,H): return lambda x: f(x-H)
+```
+
+上面定义的函数$$\text{horizontal_shift}(f,H)$$，接受的输入是一个函数$$f$$个一个实数$$H$$，而输出是一个新的函数，而该函数是将$$f$$沿着水平方向平移了距离$$H$$后得到的。
+
+```
+    x = np.linspace(-10,10,100)
+    shifted_g = horizontal_shift(g,2)
+    plt.plot(x,g(x),'b',x,shifted_g(x),'r')
+```
+![02-04 gplot](images/02-04gplot.png)
+
+以高阶函数的观点看去，函数的复合便是将两个函数作为输入给复合函数，然后由其产生一个新的函数作为输出。复合函数可以如此定义：
+```
+    def composite(f,g):
+        return lambda x: f(g(x))
+```
+
+
 
 
