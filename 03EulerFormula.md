@@ -24,9 +24,10 @@ $$\qquad = cos(x)+isin(x)$$
 
 欧拉公式在三角函数、圆周率、虚数以及自然指数之间建立的桥梁，在很多领域都扮演着重要的角色。
 
-如果你对欧拉公式的正确性感到疑惑，不妨在Python中验证一下：```
+如果你对欧拉公式的正确性感到疑惑，不妨在Python中验证一下：   
+```
     x = np.linspace(-np.pi,np.pi)    
-    #Python中虚数用j表示
+    # Python中虚数用j表示
     lhs = e**(1j*x)
     rhs = cos(x)+1j*sin(x)
     print sum(lhs==rhs)==len(x)
@@ -42,6 +43,6 @@ $$\frac{d}{dx}cos(x)=-sin(x)$$
 ```
     for p in e**(1j*x):
         plt.polar([0, angle(p)],[0, abs(p)], marker = 'o')
-```
+```   
 ![03-01 polar with complex](images\03-01polar.png)
 
