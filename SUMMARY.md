@@ -6,3 +6,4 @@
    + [函数](01Functions.md)
    + [复合函数](02OperationOnFunctions.md)
    + [欧拉公式](03EulerFormula.md)
+   + [泰勒级数](04TaylorSeries.md)
