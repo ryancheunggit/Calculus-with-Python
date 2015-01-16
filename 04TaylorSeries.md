@@ -17,4 +17,30 @@ $$\qquad =\sum_{k=0}^{\infty}\frac{x^k}{k!}$$
 
 类似地，有兴趣的读者可以尝试用泰勒级数的定义来推导一下$$sin(x),cos(x)$$关于$$x=0$$处展开的泰勒级数。  
 
-##****
+下面，在Python中试试吧：
+```
+    import sympy 
+    # 指定x为符号
+    x = sympy.Symbol('x')
+    # exp为公式
+    exp = e**x
+    # 下面开始求和,就求前21项的和吧
+    sums = 0
+    for i in range(20):
+        # 求i次导函数
+        numerator = exp.diff(x,i)
+        # 计算导函数在x=0处的值
+        numerator = numerator.evalf(subs={x:0})
+        denominator = np.math.factorial(i)
+        sums += numerator/denominator*x**i
+    # 下面检验一下原始的exp函数和其在x=0处展开的泰勒级数前20项之和的差距
+    xvals = np.linspace(0,20,100)
+    for xval in xvals:
+        plt.plot(xval,exp.evalf(subs={x:xval}),'bo',\
+                 xval,sum.evalf(subs={x:xval}),'ro')
+```
+
+![04-01 approx](images/04-01approx.png)  
+
+表明前指数函数$$e^x$$在$$x=0$$处展开的泰勒级数只取前20项的话，在输入较小时（我会觉得<15），能够很好地用来近似$$e^x$$
+##**多项式近似式**
