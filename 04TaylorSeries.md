@@ -17,6 +17,9 @@ $$\qquad =\sum_{k=0}^{\infty}\frac{x^k}{k!}$$
 
 类似地，有兴趣的读者可以尝试用泰勒级数的定义来推导一下$$sin(x),cos(x)$$关于$$x=0$$处展开的泰勒级数。  
 
+##**多项式近似式(Polynomial Approximants)**
+泰勒级数可以把非常复杂的函数转变成无限项多项式的和的形式。通常，我们可以只计算这泰勒级数的前几项之和，便能够将其作为原本很复杂的函数的局部近似了。在做这样的多项式近似时，我们所计算的项越多，则近似的结果越精确。
+
 下面，在Python中试试吧：
 ```
     import sympy 
@@ -39,8 +42,29 @@ $$\qquad =\sum_{k=0}^{\infty}\frac{x^k}{k!}$$
         plt.plot(xval,exp.evalf(subs={x:xval}),'bo',\
                  xval,sum.evalf(subs={x:xval}),'ro')
 ```
-
 ![04-01 approx](images/04-01approx.png)  
 
 表明前指数函数$$e^x$$在$$x=0$$处展开的泰勒级数只取前20项的话，在输入较小时（我会觉得<15），能够很好地用来近似$$e^x$$
-##**多项式近似式**
+
+让我们看看不同项数所计算出来的近似结果之间的差异：
+```
+    def polyApprox(func,num_terms):
+        sums = 0
+        for i in range(num_terms):
+            numerator = func.diff(x,i)
+            numerator = numerator.evalf(subs={x:0})
+            denominator = np.math.factorial(i)
+            sums += numerator/denominator*x**i
+        return sums
+    sum5 = polyApprox(exp,5)
+    sum10 = polyApprox(exp,10)
+    sum15 = polyApprox(exp,15)
+    xvals = np.linspace(5,10,100)
+    for xval in xvals:
+        plt.plot(xval,exp.evalf(subs={x:xval}),'bo',\
+                 xval,sum5.evalf(subs={x:xval}),'ro',\
+                 xval,sum10.evalf(subs={x:xval}),'go',\
+                 xval,sum15.evalf(subs={x:xval}),'yo')
+```
+![04-02 approx2](images/04-02approx2.png)  
+可以明显看出，当我们计算的项数越多时，多项式近似的结果越接近真实值。
