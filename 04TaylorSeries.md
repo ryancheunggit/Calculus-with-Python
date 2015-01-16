@@ -17,8 +17,8 @@ $$\qquad =\sum_{k=0}^{\infty}\frac{x^k}{k!}$$
 
 类似地，有兴趣的读者可以尝试用泰勒级数的定义来推导一下$$sin(x),cos(x)$$关于$$x=0$$处展开的泰勒级数。  
 
-##**多项式近似式(Polynomial Approximants)**
-泰勒级数可以把非常复杂的函数转变成无限项多项式的和的形式。通常，我们可以只计算这泰勒级数的前几项之和，便能够将其作为原本很复杂的函数的局部近似了。在做这样的多项式近似时，我们所计算的项越多，则近似的结果越精确。
+##**多项式近似(Polynomial Approximantion)**
+泰勒级数可以把非常复杂的函数转变成无限项多项的和的形式。通常，我们可以只计算这泰勒级数的前几项之和，便能够将其作为原本很复杂的函数的局部近似了。在做这样的多项式近似时，我们所计算的项越多，则近似的结果越精确。
 
 下面，在Python中试试吧：
 ```
@@ -37,6 +37,8 @@ $$\qquad =\sum_{k=0}^{\infty}\frac{x^k}{k!}$$
         denominator = np.math.factorial(i)
         sums += numerator/denominator*x**i
     # 下面检验一下原始的exp函数和其在x=0处展开的泰勒级数前20项之和的差距
+    print exp.evalf(subs={x:0})-sums.evalf(subs={x:0})
+    0
     xvals = np.linspace(0,20,100)
     for xval in xvals:
         plt.plot(xval,exp.evalf(subs={x:xval}),'bo',\
@@ -44,7 +46,7 @@ $$\qquad =\sum_{k=0}^{\infty}\frac{x^k}{k!}$$
 ```
 ![04-01 approx](images/04-01approx.png)  
 
-表明前指数函数$$e^x$$在$$x=0$$处展开的泰勒级数只取前20项的话，在输入较小时（我会觉得<15），能够很好地用来近似$$e^x$$
+表明前指数函数$$e^x$$在$$x=0$$处展开的泰勒级数只取前20项的话，在输入值越接近展开点（$$x=0$$）处附近就越能较好地用来近似$$e^x$$
 
 让我们看看不同项数所计算出来的近似结果之间的差异：
 ```
@@ -67,4 +69,4 @@ $$\qquad =\sum_{k=0}^{\infty}\frac{x^k}{k!}$$
                  xval,sum15.evalf(subs={x:xval}),'yo')
 ```
 ![04-02 approx2](images/04-02approx2.png)  
-可以明显看出，当我们计算的项数越多时，多项式近似的结果越接近真实值。
+可以明显看出，在输入值远离展开点$$x=0$$处时，用越多项数获得的近似结果越接近真实值。
