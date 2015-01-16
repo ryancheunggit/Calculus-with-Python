@@ -4,6 +4,8 @@
 
 谨以此书献给我亲爱的家人
 
+建议安装Enthought的Canopy Python Distribution，本书中用到的Library就都满足了。
+
 更新记录：  
 Jan.13 2.1函数  
 Jan.14 2.2复合函数/逆函数  
