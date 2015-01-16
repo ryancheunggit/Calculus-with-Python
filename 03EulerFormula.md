@@ -44,5 +44,5 @@ $$\frac{d}{dx}cos(x)=-sin(x)$$
     for p in e**(1j*x):
         plt.polar([0, angle(p)],[0, abs(p)], marker = 'o')
 ```   
-![03-01 polar with complex](images\03-01polar.png)
+![03-01 polar with complex](images\03-01polar.png)  
 
