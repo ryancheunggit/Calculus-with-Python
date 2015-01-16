@@ -37,3 +37,11 @@ $$\qquad = cos(x)+isin(x)$$
 $$\frac{d}{dx}e^x=e^x$$
 $$\frac{d}{dx}sin(x)=cos(x)$$
 $$\frac{d}{dx}cos(x)=-sin(x)$$  
+
+喔，对了，这一章怎能没有图呢？收尾前来一发吧：
+```
+    for p in e**(1j*x):
+        plt.polar([0, angle(p)],[0, abs(p)], marker = 'o')
+```
+![03-01 polar with complex](images\03-01polar.png)
+
