@@ -34,12 +34,12 @@
 函数的极限，描述的是输入值在接近一个特定值时函数的表现。
 
 定义：我们若要称函数$$f(x)$$在$$x=a$$处的极限为$$L$$即：$$\lim_{x\rightarrow a}f(x)=L$$，则需要：     
-对任意一个$$\epsilon > 0$$，我们要都能找到一个$$\delta >0$$使得当$$x$$的取值满足$$0<|x-a|<\delta$$时$$0<|f(x)-L|<\epsilon$$  
+对任意一个$$\epsilon > 0$$，我们要都能找到一个$$\delta >0$$使得当$$x$$的取值满足$$|x-a|<\delta$$时$$|f(x)-L|<\epsilon$$  
 
-下面尝试用上面的定义来证明$$\lim_{x\rightarrow 4}x^2-2x-6=2$$:   
+下面尝试用上面的定义来证明$$\lim_{x\rightarrow 4}(x^2-2x-6)=2$$:   
 依据定义，我们需要的是，对于任意$$|x-4|<\delta$$都能有$$|f(x)-2|<\epsilon$$  
 注意到$$|f(x)-2|=|x^2-2x-6-2|=|(x-4)(x+2)|=|x-4|\cdot|x+2|$$，其中我们已经知道$$|x-4|<\delta$$    
-由三角不等，有$$|x+2|=|x-4+6|\leq|x-4|+6<\delta+6$$  
-因此$$|f(x)-2|=|x-4|\cdot|x+2|<\delta\cdot (\delta+6)$$
-
-
+依三角不等式有：$$|x+2|=|x-4+6|\leq|x-4|+6<\delta+6$$  
+因此$$|f(x)-2|=|x-4|\cdot|x+2|<\delta\cdot (\delta+6)$$  
+现在我们只需要找到一个$$\delta$$使得$$\delta\cdot (\delta+6)\leq\epsion$$成立即可  
+动用一些中学时候的二元一次方程知识应该很容易证明这样的$$\delta >0$$是存在的，或者我们只要令$$\delta=min(1,\frac{\epsilon}{7})$$即可使得$$\delta \leq \frac{\epsilon}{7}$$且$$\delta +6\leq \epsilon$$，因而$$\delta\cdot (\delta+6)\leq\epsion$$  
