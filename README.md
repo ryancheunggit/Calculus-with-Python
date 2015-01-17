@@ -9,7 +9,7 @@ Python部分利用到了Numpy,Matplotlib,Sympy等Library.
 
 更新记录：  
 Jan.13 2.1函数  
-Jan.14 2.2复合函数
+Jan.14 2.2复合函数  
 Jan.15 2.3欧拉公式  
-Jan.16 2.4泰勒级数
+Jan.16 2.4泰勒级数  
 Jan.17 2.5极限 
