@@ -46,7 +46,7 @@
 
 ![05-01 limit](images/05-01limits.png)
 
-下面尝试用上面的定义来证明$$\lim_{x\rightarrow 4}(x^2-2x-6)=2$$:   
+下面尝试用上面的定义来证明$$\lim_{x\rightarrow 4}x^2-2x-6=2$$:   
 依据定义，我们需要show的是：对于任意$$\epsilon$$,能找到一个$$\delta$$使得：$$|x-4|<\delta$$时有$$|f(x)-2|<\epsilon$$  
 注意到$$|f(x)-2|=|x^2-2x-6-2|=|(x-4)(x+2)|=|x-4|\cdot|x+2|$$，其中我们已经知道$$|x-4|<\delta$$    
 依三角不等式有：$$|x+2|=|x-4+6|\leq|x-4|+6<\delta+6$$  
@@ -63,6 +63,6 @@
 ##**泰勒级数用于极限计算**  
 我们在中学课本中一定记忆了常见的极限，以及极限计算的规则，这里我们便不再赘言。泰勒级数也可以用于计算一些形式比较复杂的函数的极限。这里，仅举一例：   
 $$\lim_{x\rightarrow 0}\frac{sin(x)}{x}=\lim_{x\rightarrow 0}{\frac{\frac{x}{1!}-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+\dots}{x}}$$  
-$$\qquad = \lim_{x\rightarrow 0}{\frac{x(1-\frac{x^2}{3!}+\frac{x^4}{5!}-\frac{x^6}{7!}+\dots)}{x}$$  
+$$\qquad = \lim_{x\rightarrow 0}{\frac{x(1-\frac{x^2}{3!}+\frac{x^4}{5!}-\frac{x^6}{7!}+\dots)}{x}}$$  
 $$\qquad = \lim_{x\rightarrow 0}{1-\frac{x^2}{3!}+\frac{x^4}{5!}-\frac{x^6}{7!}+\dots}$$  
 $$\qquad = 1$$
