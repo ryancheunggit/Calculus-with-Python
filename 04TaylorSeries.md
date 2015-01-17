@@ -82,7 +82,14 @@ $$\qquad =\sum_{k=0}^{\infty}\frac{x^k}{k!}$$
 ##**展开点（Expansion point）**  
 上面我们获得的泰勒级数都是围绕着$$x=0$$处获得的，我们发现多项式近似也只在$$x=0$$处较为准确。如果我们希望在其他位置获得类似的多项式近似，则可以在不同的展开点（例如$$x=a$$）获得泰勒级数：  
 
-$$f(x)=f(a)+\frac{f'(a)}{1!}(x-a)+\frac{f''(a)}{2!}(x-a)^2+\frac{f'''(a)}{3!}(x-a)^3+\dots=\sum_{k=0}^{\infty}\frac{f^{(k)}(a)}{k!}(x-a)^k$$  
+$$f(x)=f(a)+\frac{f'(a)}{1!}(x-a)+\frac{f''(a)}{2!}(x-a)^2+\frac{f'''(a)}{3!}(x-a)^3+\dots=\sum_{k=0}^{\infty}\frac{f^{(k)}(a)}{k!}(x-a)^k$$   
 
+Python中，这也非常容易：
+```
+    def taylorExpansion(func,var,expPoint,numTerms):
+        return func.series(var,expPoint,numTerms)
+        
+    print taylorExpansion(sympy.tanh(x),x,2,3)
+    # resulut is :tanh(2) + (x - 2)*(-tanh(2)**2 + 1) + (x - 2)**2*(-tanh(2) + tanh(2)**3) + O((x - 2)**3, (x, 2))
 
-
+```
