@@ -47,11 +47,19 @@
 ![05-01 limit](images/05-01limits.png)
 
 下面尝试用上面的定义来证明$$\lim_{x\rightarrow 4}(x^2-2x-6)=2$$:   
-依据定义，我们需要的是，对于任意$$|x-4|<\delta$$都能有$$|f(x)-2|<\epsilon$$  
+依据定义，我们需要show的是：对于任意$$\epsilon$$,能找到一个$$\delta$$使得：$$|x-4|<\delta$$时有$$|f(x)-2|<\epsilon$$  
 注意到$$|f(x)-2|=|x^2-2x-6-2|=|(x-4)(x+2)|=|x-4|\cdot|x+2|$$，其中我们已经知道$$|x-4|<\delta$$    
 依三角不等式有：$$|x+2|=|x-4+6|\leq|x-4|+6<\delta+6$$  
 因此$$|f(x)-2|=|x-4|\cdot|x+2|<\delta\cdot (\delta+6)$$  
-现在我们只需要找到一个$$\delta$$使得$$\delta\cdot (\delta+6)\leq\epsilon$$成立即可  
+现在我们只需要找到一个$$\delta$$满足$$\delta\cdot (\delta+6)\leq\epsilon$$即可  
 动用一些中学时候的二元一次方程知识应该很容易证明这样的$$\delta >0$$是存在的，或者我们只要令$$\delta=min(1,\frac{\epsilon}{7})$$即可使得$$\delta \leq \frac{\epsilon}{7}$$且$$\delta +6\leq \epsilon$$，因而$$\delta\cdot (\delta+6)\leq\epsilon$$  
 
-上图中的函数就是$$f(x)=x^2-2x-6$$,并且$$\epsilon=,\delta=$$
+上图中的函数就是$$f(x)=x^2-2x-6$$,并且$$\epsilon=4,\delta=0.3$$  
+
+##**函数的连续性**  
+极限可以用来判断一个函数是否为连续函数。  
+当极限$$\lim_{x\rightarrow a}f(x)$$存在，且$$\lim_{x\rightarrow a}f(x)=f(a)$$时，称函数$$f(x)$$在点$$x=0$$处为连续的。 当一个函数在其定义域中任何一点处均连续，则称该函数是连续函数。   
+
+##**泰勒级数用于极限计算**  
+
+
