@@ -59,10 +59,13 @@ $$\qquad =\sum_{k=0}^{\infty}\frac{x^k}{k!}$$
             denominator = np.math.factorial(i)
             sums += numerator/denominator*x**i
         return sums
+        
     sum5 = polyApprox(exp,5)
     sum10 = polyApprox(exp,10)
+    
     # 利用sympy我们可以更简单的获得泰勒级数：
     sum15 = exp.series(x,0,15)
+    
     xvals = np.linspace(5,10,100)
     for xval in xvals:
         plt.plot(xval,exp.evalf(subs={x:xval}),'bo',\
