@@ -4,7 +4,8 @@
 
 谨以此书献给我亲爱的家人
 
-建议安装Enthought的Canopy Python Distribution，本书中用到的Library就都满足了。
+Python部分利用到了Numpy,Matplotlib,Sympy等Library.   
+建议新手安装Enthought的Canopy Python Distribution，本书中用到的Library就都满足了。
 
 更新记录：  
 Jan.13 2.1函数  
