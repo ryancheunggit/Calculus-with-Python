@@ -54,6 +54,14 @@
 现在我们只需要找到一个$$\delta$$满足$$\delta\cdot (\delta+6)\leq\epsilon$$即可  
 动用一些中学时候的二元一次方程知识应该很容易证明这样的$$\delta >0$$是存在的，或者我们只要令$$\delta=min(1,\frac{\epsilon}{7})$$即可使得$$\delta \leq \frac{\epsilon}{7}$$且$$\delta +6\leq 7$$，因而$$\delta\cdot (\delta+6)\leq\epsilon$$  
 
+Python中求该极限方法如下：  
+```
+	x = sympy.Symbol('x',real = True)
+	y = f(x)
+	print y.limit(x, 2)
+	# result is: 2
+```
+
 上图中的函数就是$$f(x)=x^2-2x-6$$,并且$$\epsilon=4,\delta=0.3$$  
 
 ##**函数的连续性**  
