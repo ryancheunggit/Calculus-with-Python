@@ -37,12 +37,21 @@ $$\qquad =\sum_{k=0}^{\infty}\frac{x^k}{k!}$$
         denominator = np.math.factorial(i)
         sums += numerator/denominator*x**i
 <<<<<<< HEAD
+<<<<<<< HEAD
     
     # 下面检验一下原始的exp函数和其在x=0处展开的泰勒级数前20项之和的差距
     print exp.evalf(subs={x:0})-sums.evalf(subs={x:0})
     # result is 0
     xvals = np.linspace(0,20,100)
     
+=======
+    
+    # 下面检验一下原始的exp函数和其在x=0处展开的泰勒级数前20项之和的差距
+    print exp.evalf(subs={x:0})-sums.evalf(subs={x:0})
+    # result is 0
+    xvals = np.linspace(0,20,100)
+    
+>>>>>>> parent of d1b0018... Lhopital
 =======
     
     # 下面检验一下原始的exp函数和其在x=0处展开的泰勒级数前20项之和的差距
@@ -90,6 +99,7 @@ $$\qquad =\sum_{k=0}^{\infty}\frac{x^k}{k!}$$
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 上图中的函数就是$$f(x)=x^2-2x-6$$,并且$$\epsilon=4,\delta=0.3$$  
 读者可以回顾一下在$$\infty$$处极限的定义。  
 
@@ -115,5 +125,21 @@ Python中，这也非常容易：
 <<<<<<< HEAD
 ```
 =======
+```
+>>>>>>> parent of d1b0018... Lhopital
+=======
+##**展开点（Expansion point）**  
+上面我们获得的泰勒级数都是围绕着$$x=0$$处获得的，我们发现多项式近似也只在$$x=0$$处较为准确。如果我们希望在其他位置获得类似的多项式近似，则可以在不同的展开点（例如$$x=a$$）获得泰勒级数：  
+
+$$f(x)=f(a)+\frac{f'(a)}{1!}(x-a)+\frac{f''(a)}{2!}(x-a)^2+\frac{f'''(a)}{3!}(x-a)^3+\dots=\sum_{k=0}^{\infty}\frac{f^{(k)}(a)}{k!}(x-a)^k$$   
+
+Python中，这也非常容易：
+```
+    def taylorExpansion(func,var,expPoint,numTerms):
+        return func.series(var,expPoint,numTerms)
+        
+    print taylorExpansion(sympy.tanh(x),x,2,3)
+    # resulut is :tanh(2) + (x - 2)*(-tanh(2)**2 + 1) + (x - 2)**2*(-tanh(2) + tanh(2)**3) + O((x - 2)**3, (x, 2))
+
 ```
 >>>>>>> parent of d1b0018... Lhopital
