@@ -55,6 +55,8 @@
 动用一些中学时候的二元一次方程知识应该很容易证明这样的$$\delta >0$$是存在的，或者我们只要令$$\delta=min(1,\frac{\epsilon}{7})$$即可使得$$\delta \leq \frac{\epsilon}{7}$$且$$\delta +6\leq 7$$，因而$$\delta\cdot (\delta+6)\leq\epsilon$$  
 
 上图中的函数就是$$f(x)=x^2-2x-6$$,并且$$\epsilon=4,\delta=0.3$$  
+读者可以回顾一下在$$\infty$$处极限的定义。  
+
 
 ##**函数的连续性（Continuity）**  
 极限可以用来判断一个函数是否为连续函数。  
