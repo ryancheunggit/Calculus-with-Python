@@ -27,11 +27,15 @@ $$\qquad = cos(x)+isin(x)$$
 如果你对欧拉公式的正确性感到疑惑，不妨在Python中验证一下：   
 ```
     x = np.linspace(-np.pi,np.pi)    
-    # Python中虚数用j表示
+    # Numpy中虚数用j表示
     lhs = e**(1j*x)
     rhs = cos(x)+1j*sin(x)
     print sum(lhs==rhs)==len(x)
-    True
+    # result: True
+    # 我们也可以用sympy来展开e^x，得特别注意的是sympy中虚数为I,欧拉常数为E
+    z = sympy.Symbol('z', real = True)
+    sympy.expand(sympy.E**(sympy.I*z), complex = True)
+    # result: I*sin(z) + cos(z)
 ```
 
 将函数写成多项式形式有很多的好处，多项式的微分和积分都比较容易。现在你知道了$$e^x,sin(x),cos(x)$$的多项式形式，不妨用其去验证一下中学书本中强行填塞给你这几个公式：   

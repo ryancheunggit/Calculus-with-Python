@@ -50,7 +50,7 @@
 ```
 ![02-03 inverse](images/02-03inverse.png) 
 
-##**高阶函数**:  
+##**高阶函数（Higher Order Functions）**:  
 我们可以不局限于仅将数值作为函数的输入输出，函数本身也可以作为输入和输出。
 ```
     def horizontal_shift(f,H): return lambda x: f(x-H)
@@ -70,5 +70,5 @@
     def composite(f,g): return lambda x: f(g(x))
     h3 = composite(f,g)
     print sum(h(x)==h3(x))==len(x)
-    True
+    # result: True
 ```

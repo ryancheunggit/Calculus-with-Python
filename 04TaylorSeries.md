@@ -66,8 +66,7 @@ $$\qquad =\sum_{k=0}^{\infty}\frac{x^k}{k!}$$
     sum10 = polyApprox(exp,10)
     
     # 利用sympy我们也可以获得泰勒级数：
-    sum15 = exp.series(x,0,n=None)
-    sum15 = sum([sum15.next() for i in range(15)])
+    sum15 = exp.series(x,0,15).removeO()
     
     xvals = np.linspace(5,10,100)
     for xval in xvals:
