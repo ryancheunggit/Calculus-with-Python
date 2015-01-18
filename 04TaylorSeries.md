@@ -92,5 +92,4 @@ Python中，这也非常容易：
     print taylorExpansion(sympy.tanh(x),x,2,3)
     # resulut is :tanh(2) + (x - 2)*(-tanh(2)**2 + 1) + (x - 2)**2*(-tanh(2)\
         + tanh(2)**3) + O((x - 2)**3, (x, 2))
-
 ```
