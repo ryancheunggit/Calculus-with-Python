@@ -68,15 +68,3 @@ $$\lim_{x\rightarrow 0}\frac{sin(x)}{x}=\lim_{x\rightarrow 0}{\frac{\frac{x}{1!}
 $$\qquad = \lim_{x\rightarrow 0}{\frac{x(1-\frac{x^2}{3!}+\frac{x^4}{5!}-\frac{x^6}{7!}+\dots)}{x}}$$  
 $$\qquad = \lim_{x\rightarrow 0}{1-\frac{x^2}{3!}+\frac{x^4}{5!}-\frac{x^6}{7!}+\dots}$$  
 $$\qquad = 1$$
-
-##**洛必达法则（l'Hopital's rule）**  
-利用泰勒级数来计算极限，有时也会陷入困境，例如：求极限的位置是在我们不知道泰勒展开的位置，或者所求极限是无穷的。通常遇到这些情况我们会使用各种形式的洛必达法则，读者可以自行回顾一下这些情形，这里我们仅尝试说明$$\frac{0}{0}$$形式的洛必达法则为何成立。    
-$$\frac{0}{0}$$形式的洛必达法则定义如下：  
-如果$$f$$和$$g$$是连续函数，且$$\lim_{x\rightarrow a}{f(x)=0},\ \lim_{x\rightarrow a}{g(x)=0}$$，若$$\lim_{x\rightarrow a}{\frac{f'(x)}{g'(x)}}$$存在，则：$$\lim_{x\rightarrow a}{\frac{f(x)}{g(x)}}=\lim_{x\rightarrow a}{\frac{f'(x)}{g'(x)}}$$。    
-若分子分母同时求导后仍然是$$\frac{0}{0}$$形式，那么便重复该过程，直至问题解决。   
-运用泰勒级数，我们很容易可以理解洛必达法则为什么会成立:   
-$$\lim_{x\rightarrow a}{\frac{f(x)}{g(x)}}=\lim_{x\rightarrow a}{\frac{f(a)+\frac{f'(a)}{1!}(x-a)+\frac{f''(a)}{2!}(x-a)^2+\frac{f'''(a)}{3!}(x-a)^3+\dots}{g(a)+\frac{g'(a)}{1!}(x-a)+\frac{g''(a)}{2!}(x-a)^2+\frac{g'''(a)}{3!}(x-a)^3+\dots}}$$   
-$$\qquad = \lim_{x\rightarrow a}{\frac{\frac{f'(a)}{1!}(x-a)+\frac{f''(a)}{2!}(x-a)^2+\frac{f'''(a)}{3!}(x-a)^3+\dots}{\frac{g'(a)}{1!}(x-a)+\frac{g''(a)}{2!}(x-a)^2+\frac{g'''(a)}{3!}(x-a)^3+\dots}}$$    
-$$\qquad =\lim_{x\rightarrow a}{\frac{f'(a)+\frac{f''(a)}{2!}(x-a)+\frac{f'''(a)}{3!}(x-a)^2+\dots}{g'(a)+\frac{g''(a)}{2!}(x-a)+\frac{g'''(a)}{3!}(x-a)^2+\dots}}$$   
-$$\qquad = \lim_{x\rightarrow a}\frac{f'(x)}{g'(x)}$$  
-感兴趣的读者可以自己尝试去验证一下其他形式的洛必达法则。  
