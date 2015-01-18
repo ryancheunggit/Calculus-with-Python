@@ -9,7 +9,7 @@ Python部分利用到了Numpy,Matplotlib,Sympy等Library.
 推荐的函数库调用方法：  
 ```
 	import numpy as np
-	import matplotlib as plt
+	import matplotlib.pyplot as plt
 	import sympy
 ```
 
