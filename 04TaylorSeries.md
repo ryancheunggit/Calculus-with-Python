@@ -1,81 +1,96 @@
-#极限
-##**极限(Limits)**  
-函数的极限，描述的是输入值在接近一个特定值时函数的表现。
+#泰勒级数
+##**泰勒级数(Taylor Series)**  
+在前几章的预热之后，读者可能会有这样的疑问，是否任何函数都可以写成友善的多项式形式呢？目前为止，我们介绍的$$e^x,sin(x),cos(x)$$都有其奇妙的多项式形式。这些多项式形式实际为这些函数在$$x=0$$处展开的泰勒级数。  
 
-定义：我们若要称函数$$f(x)$$在$$x=a$$处的极限为$$L$$即：$$\lim_{x\rightarrow a}f(x)=L$$，则需要：     
-对任意一个$$\epsilon > 0$$，我们要都能找到一个$$\delta >0$$使得当$$x$$的取值满足$$0<|x-a|<\delta$$时$$|f(x)-L|<\epsilon$$  
+下面我们给出函数$$f(x)$$在$$x=0$$处展开的泰勒级数的定义：  
+$$f(x)=f(0)+\frac{f'(0)}{1!}x+\frac{f''(0)}{2!}x^2+\frac{f'''(0)}{3!}x^3+\dots=\sum_{k=0}^{\infty}\frac{f^{(k)}(0)}{k!}x^k$$  
+其中：$$f^{(k)}(0)$$表示函数$$f$$的$$k$$次导函数在点$$x=0$$处的取值。  
 
-本节的重点内容其实是用Python画图...：  
+我们知道对$$e^x$$无论计算多少次导数结果都是$$e^x$$（前面也推荐读者自己验证过），即：
+$$exp'(x)=exp''(x)=exp'''(x)=\dots=exp^{(k)}(x)=exp(x)$$  
+$$exp'(0)=exp''(0)=exp'''(0)=\dots=exp^{(k)}(0)=exp(0)=1$$    
+因而，依据上面的定义展开有：
+$$exp(x)=exp(0)+\frac{exp'(0)}{1!}x+\frac{exp''(0)}{2!}x^2+\frac{exp'''(0)}{3!}x^3+\dots$$
+$$\qquad =1 + \frac{x}{1!}+\frac{x^2}{2!}+\frac{x^3}{3!}+\dots$$
+$$\qquad =\sum_{k=0}^{\infty}\frac{x^k}{k!}$$  
+便得到了在[2.1](01Functions.md)中所介绍的公式。  
+
+类似地，有兴趣的读者可以尝试用泰勒级数的定义来推导一下$$sin(x),cos(x)$$关于$$x=0$$处展开的泰勒级数。  
+
+##**多项式近似(Polynomial Approximantion)**
+泰勒级数可以把非常复杂的函数转变成无限项的和的形式。通常，我们可以只计算泰勒级数的前几项之和，便能够获得原函数的局部近似了。在做这样的多项式近似时，我们所计算的项越多，则近似的结果越精确。
+
+下面，在Python中试试吧：
+```
+    import sympy 
+    # 指定x为符号
+    x = sympy.Symbol('x')
+    # exp为公式
+    exp = e**x
+    # 下面开始求和,就求前21项的和吧
+    sums = 0
+    for i in range(20):
+        # 求i次导函数
+        numerator = exp.diff(x,i)
+        # 计算导函数在x=0处的值
+        numerator = numerator.evalf(subs={x:0})
+        denominator = np.math.factorial(i)
+        sums += numerator/denominator*x**i
+    
+    # 下面检验一下原始的exp函数和其在x=0处展开的泰勒级数前20项之和的差距
+    print exp.evalf(subs={x:0})-sums.evalf(subs={x:0})
+    # result is 0
+    xvals = np.linspace(0,20,100)
+    
+    for xval in xvals:
+        plt.plot(xval,exp.evalf(subs={x:xval}),'bo',\
+                 xval,sums.evalf(subs={x:xval}),'ro')
+```
+![04-01 approx](images/04-01approx.png)  
+
+表明指数函数$$e^x$$在$$x=0$$处展开的泰勒级数只取前20项的话，在输入值越接近展开点（$$x=0$$）处的近似效果就越好。  
+
+让我们看看采用不同项数所计算出来的近似结果之间的差异：
+```
+    def polyApprox(func,num_terms):
+        # 当我们需要反复做类似的步骤的时候，最好将步骤定义为一个函数
+        sums = 0
+        for i in range(num_terms):
+            numerator = func.diff(x,i)
+            numerator = numerator.evalf(subs={x:0})
+            denominator = np.math.factorial(i)
+            sums += numerator/denominator*x**i
+        return sums
+        
+    sum5 = polyApprox(exp,5)
+    sum10 = polyApprox(exp,10)
+    
+    # 利用sympy我们也可以获得泰勒级数：
+    sum15 = exp.series(x,0,n=None)
+    sum15 = sum([sum15.next() for i in range(15)])
+    
+    xvals = np.linspace(5,10,100)
+    for xval in xvals:
+        plt.plot(xval,exp.evalf(subs={x:xval}),'bo',\
+                 xval,sum5.evalf(subs={x:xval}),'ro',\
+                 xval,sum10.evalf(subs={x:xval}),'go',\
+                 xval,sum15.evalf(subs={x:xval}),'yo')
+```
+![04-02 approx2](images/04-02approx2.png)  
+可以明显看出，在输入值远离展开点$$x=0$$处时，用越多项数获得的近似结果越接近真实值。
+
+##**展开点（Expansion point）**  
+上面我们获得的泰勒级数都是围绕着$$x=0$$处获得的，我们发现多项式近似也只在$$x=0$$处较为准确。如果我们希望在其他位置获得类似的多项式近似，则可以在不同的展开点（例如$$x=a$$）获得泰勒级数：  
+
+$$f(x)=f(a)+\frac{f'(a)}{1!}(x-a)+\frac{f''(a)}{2!}(x-a)^2+\frac{f'''(a)}{3!}(x-a)^3+\dots=\sum_{k=0}^{\infty}\frac{f^{(k)}(a)}{k!}(x-a)^k$$   
+
+Python中，这也非常容易：
+```
+    def taylorExpansion(func,var,expPoint,numTerms):
+        return func.series(var,expPoint,numTerms)
+        
+    print taylorExpansion(sympy.tanh(x),x,2,3)
+    # resulut is :tanh(2) + (x - 2)*(-tanh(2)**2 + 1) + (x - 2)**2*(-tanh(2)\
+        + tanh(2)**3) + O((x - 2)**3, (x, 2))
 
 ```
-    f = lambda x: x**2-2*x-6
-    x = np.linspace(0,5,100)
-    y = f(x)
-    
-    plt.plot(x,y,'red')
-    plt.grid('off')
-    
-    l = plt.axhline(-8,0,1,linewidth = 2, color = 'black')
-    l = plt.axvline(0,0,1,linewidth = 2, color = 'black')
-    
-    l = plt.axhline(y=2,xmin=0,xmax=0.8,linestyle="--")
-    l = plt.axvline(x=4,ymin=0,ymax=float(5)/9, linestyle = "--")
-    
-    l = plt.axhline(-6,3.7/5,4.3/5,linewidth = 2, color = 'black')
-    l = plt.axvline(1,6.0/18,14.0/18,linewidth = 2, color = 'black')
-    
-    p = plt.axhspan(-2,6,0,(1+sqrt(13))/5,alpha = 0.15, ec = 'none')
-    p = plt.axvspan((1+sqrt(5)),(1+sqrt(13)),0,1.0/3,alpha = 0.15, ec = 'none')
-    
-    p = plt.axhspan(f(3.7),f(4.3),0,4.3/5,alpha = 0.3, ec = 'none')
-    p = plt.axvspan(3.7,4.3,0,(f(3.7)+8)/18,alpha = 0.3, ec = 'none')
-    
-    plt.axis([0,5,-8,10])
-    
-    
-    plt.text(0.8,-1,r"$\epsilon$", fontsize = 18)
-    plt.text(0.8,4,r"$\epsilon$", fontsize = 18)
-    plt.text(3.75,-7.0,r"$\delta$", fontsize = 18)
-    plt.text(4.1,-7.0,r"$\delta$", fontsize = 18)
-    plt.text(3.95,-7.8,r"$a$", fontsize = 18)
-    plt.text(4.5,8.5,r"$f(x)$", fontsize = 18,color="red")
-    
-    
-    plt.show()
-```
-
-![05-01 limit](images/05-01limits.png)
-
-下面尝试用上面的定义来证明$$\lim_{x\rightarrow 4}x^2-2x-6=2$$:   
-依据定义，我们需要show的是：对于任意$$\epsilon$$,能找到一个$$\delta$$使得：$$0<|x-4|<\delta$$时有$$|f(x)-2|<\epsilon$$  
-注意到$$|f(x)-2|=|x^2-2x-6-2|=|(x-4)(x+2)|=|x-4|\cdot|x+2|$$，其中我们已经知道$$|x-4|<\delta$$    
-依三角不等式有：$$|x+2|=|x-4+6|\leq|x-4|+6<\delta+6$$  
-因此$$|f(x)-2|=|x-4|\cdot|x+2|<\delta\cdot (\delta+6)$$  
-现在我们只需要找到一个$$\delta$$满足$$\delta\cdot (\delta+6)\leq\epsilon$$即可  
-动用一些中学时候的二元一次方程知识应该很容易证明这样的$$\delta >0$$是存在的，或者我们只要令$$\delta=min(1,\frac{\epsilon}{7})$$即可使得$$\delta \leq \frac{\epsilon}{7}$$且$$\delta +6\leq 7$$，因而$$\delta\cdot (\delta+6)\leq\epsilon$$  
-
-上图中的函数就是$$f(x)=x^2-2x-6$$,并且$$\epsilon=4,\delta=0.3$$  
-
-##**函数的连续性（Continuity）**  
-极限可以用来判断一个函数是否为连续函数。  
-当极限$$\lim_{x\rightarrow a}f(x)$$存在，且$$\lim_{x\rightarrow a}f(x)=f(a)$$时，称函数$$f(x)$$在点$$x=a$$处为连续的。 当一个函数在其定义域中任何一点处均连续，则称该函数是连续函数。   
-
-##**泰勒级数用于极限计算**  
-我们在中学课本中一定记忆了常见的极限，以及极限计算的规则，这里我们便不再赘言。泰勒级数可以用于计算函数的极限，仅举一例说明：   
-$$\lim_{x\rightarrow 0}\frac{sin(x)}{x}=\lim_{x\rightarrow 0}{\frac{\frac{x}{1!}-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+\dots}{x}}$$  
-$$\qquad = \lim_{x\rightarrow 0}{\frac{x(1-\frac{x^2}{3!}+\frac{x^4}{5!}-\frac{x^6}{7!}+\dots)}{x}}$$  
-$$\qquad = \lim_{x\rightarrow 0}{1-\frac{x^2}{3!}+\frac{x^4}{5!}-\frac{x^6}{7!}+\dots}$$  
-$$\qquad = 1$$
-
-##**洛必达法则（l'Hopital's rule）**  
-利用泰勒级数来计算极限，有时也会陷入困境，例如：求极限的位置是在我们不知道泰勒展开的位置，或者所求极限是无穷的。通常遇到这些情况我们会使用各种形式的洛必达法则，读者可以自行回顾一下这些情形，这里我们仅尝试说明$$\frac{0}{0}$$形式的洛必达法则为何成立。    
-$$\frac{0}{0}$$形式的洛必达法则定义如下：  
-如果$$f$$和$$g$$是连续函数，且$$\lim_{x\rightarrow a}{f(x)=0},\ \lim_{x\rightarrow a}{g(x)=0}$$，若$$\lim_{x\rightarrow a}{\frac{f'(x)}{g'(x)}}$$存在，则：$$\lim_{x\rightarrow a}{\frac{f(x)}{g(x)}}=\lim_{x\rightarrow a}{\frac{f'(x)}{g'(x)}}$$。    
-若分子分母同时求导后仍然是$$\frac{0}{0}$$形式，那么便重复该过程，直至问题解决。   
-运用泰勒级数，我们很容易可以理解洛必达法则为什么会成立:   
-$$\lim_{x\rightarrow a}{\frac{f(x)}{g(x)}}=\lim_{x\rightarrow a}{\frac{f(a)+\frac{f'(a)}{1!}(x-a)+\frac{f''(a)}{2!}(x-a)^2+\frac{f'''(a)}{3!}(x-a)^3+\dots}{g(a)+\frac{g'(a)}{1!}(x-a)+\frac{g''(a)}{2!}(x-a)^2+\frac{g'''(a)}{3!}(x-a)^3+\dots}}$$   
-$$\qquad = \lim_{x\rightarrow a}{\frac{\frac{f'(a)}{1!}(x-a)+\frac{f''(a)}{2!}(x-a)^2+\frac{f'''(a)}{3!}(x-a)^3+\dots}{\frac{g'(a)}{1!}(x-a)+\frac{g''(a)}{2!}(x-a)^2+\frac{g'''(a)}{3!}(x-a)^3+\dots}}$$    
-$$\qquad =\lim_{x\rightarrow a}{\frac{f'(a)+\frac{f''(a)}{2!}(x-a)+\frac{f'''(a)}{3!}(x-a)^2+\dots}{g'(a)+\frac{g''(a)}{2!}(x-a)+\frac{g'''(a)}{3!}(x-a)^2+\dots}}$$   
-$$\qquad = \lim_{x\rightarrow a}\frac{f'(x)}{g'(x)}$$
-
-感兴趣的读者可以自己尝试去验证一下其他形式的洛必达法则。
