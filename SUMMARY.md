@@ -8,4 +8,5 @@
    + [泰勒级数](04TaylorSeries.md)
    + [极限](05Limits.md)   
    + [大O记法](06BigO.md)
+   + [导函数](07Derivative.md)
 
