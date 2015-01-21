@@ -26,4 +26,4 @@
 	plt.show()
 ```
 
-![07-01 tangentline](07-01tangline.png)
+![07-01 tangentline](images/07-01tangline.png)  
