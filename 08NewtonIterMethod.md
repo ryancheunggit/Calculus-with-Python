@@ -7,12 +7,18 @@
 	    for i in range(maxiter):
 	        x = 0.5*(x+ c/x)
 	        if prt_step == True:
+	        	# 在输出时，{0}和{1}将被i+1和x所替代
 	            print "After {0} iteration, the root value is updated to {1}".format(i+1,x)
 	    return x
 	    
-	print mysqrt(2)
-	# result : 1.414213562373095
+	print mysqrt(2,maxiter =4,prt_step = True)
+	# After 1 iteration, the root value is updated to 1.5
+	# After 2 iteration, the root value is updated to 1.41666666667
+	# After 3 iteration, the root value is updated to 1.41421568627
+	# After 4 iteration, the root value is updated to 1.41421356237
+	# result : 1.4142135623746899
 ```
+##**牛顿迭代法（Newton's Itervative Method）**    
 上面的求正二次根问题，等价于求$$f(x)=x^2-c=0$$的正根
 根据上一节介绍的线性近似：  
 $$f(x+h)\approx f(x)+f'(x)h$$ 
@@ -54,5 +60,27 @@ $$x_{n+1} = x_{n} - \frac{f(x_n)}{f'_{x_n}}$$
 
 	plt.show()
 ```
+![08-01NewMeth](images/08-01NewMeth.png)    
 
-![08-01NewMeth](images/08-01NewMeth.png)  
+我们要猜$$f(x)=x^2-2x-4=0$$的解，从$$x_0=4$$的初始猜测值开始，找到$$f(x)$$在$$x=x_0$$处的切线$$y=2x-8$$，找到其与$$y=0$$的交点$$(4,0)$$，将该交点更新为新的猜测的解$$x_1=4$$，如此循环。
+
+如下定义牛顿迭代法：    
+```
+	def NewTon(f, s = 1, maxiter = 100, prt_step = False):
+    for i in range(maxiter):
+    	# 相较于f.evalf(subs={x:s}),subs()是更好的将值带入并计算的方法。
+        s = s - f.subs(x,s)/f.diff().subs(x,s)
+        if prt_step == True:
+            print "After {0} iteration, the solution is updated to {1}".format(i+1,s)
+    return s
+
+	from sympy.abc import x
+	f = x**2-2*x-4
+	print NewTon(f, s = 2, maxiter = 4, prt_step = True)
+	# After 1 iteration, the solution is updated to 4
+	# After 2 iteration, the solution is updated to 10/3
+	# After 3 iteration, the solution is updated to 68/21
+	# After 4 iteration, the solution is updated to 3194/987
+	# 3194/987
+```
+
