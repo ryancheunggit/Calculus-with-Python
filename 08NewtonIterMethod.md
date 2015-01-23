@@ -83,4 +83,9 @@ $$x_{n+1} = x_{n} - \frac{f(x_n)}{f'_{x_n}}$$
 	# After 4 iteration, the solution is updated to 3194/987
 	# 3194/987
 ```
+Sympy可以帮助我们求解方程，不要教坏小朋友们哦：   
+```
+	sympy.solve(f,x)
+	# result: [1 + sqrt(5), -sqrt(5) + 1]
+```
 
