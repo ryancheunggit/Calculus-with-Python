@@ -10,4 +10,5 @@
    + [大O记法](06BigO.md)
    + [导数](07Derivative.md)
    + [牛顿迭代法](08NewtonIterMethod.md)
+   + [优化](09Optimization.md)
 
