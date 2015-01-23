@@ -67,12 +67,12 @@ $$x_{n+1} = x_{n} - \frac{f(x_n)}{f'_{x_n}}$$
 如下定义牛顿迭代法：    
 ```
 	def NewTon(f, s = 1, maxiter = 100, prt_step = False):
-    for i in range(maxiter):
-    	# 相较于f.evalf(subs={x:s}),subs()是更好的将值带入并计算的方法。
-        s = s - f.subs(x,s)/f.diff().subs(x,s)
-        if prt_step == True:
-            print "After {0} iteration, the solution is updated to {1}".format(i+1,s)
-    return s
+    	for i in range(maxiter):
+    		# 相较于f.evalf(subs={x:s}),subs()是更好的将值带入并计算的方法。
+        	s = s - f.subs(x,s)/f.diff().subs(x,s)
+        	if prt_step == True:
+	            print "After {0} iteration, the solution is updated to {1}".format(i+1,s)
+    	return s
 
 	from sympy.abc import x
 	f = x**2-2*x-4
