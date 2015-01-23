@@ -82,9 +82,9 @@ Sympy也提供求导的方法：
 
 ##**线性近似（Linear approximation）**  
 依据导数的定义3，我们有：  
-$$f(a+h)=f(a)+f'(h)+O(h^2)$$  
+$$f(a+h)=f(a)+f'(a)h+O(h^2)$$  
 如果将高阶项丢掉，就获得了$$f(a+h)$$的线性近似式子：  
-$$f(a+h)\approx f(a)+f'(h)$$    
+$$f(a+h)\approx f(a)+f'(a)h$$    
 
 举个例子，用线性近似的方法估算$$\sqrt{255}$$： 
 $$\sqrt{256-1}\approx \sqrt{256}+\frac{1}{2\sqrt{256}}(-1)$$  
