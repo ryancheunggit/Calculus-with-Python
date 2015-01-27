@@ -26,7 +26,7 @@ $${(\frac{d}{dx})}^nf=\frac{d^n}{dx^n}f$$
 很多时候，我们用函数来描述我们关心的问题,例如：    
 
 ```
-	plt.figure(1, figsize=(6,6))
+	plt.figure(1, figsize=(4,4))
 	plt.axis('off')
 	plt.axhspan(0,1,0.2,0.8,ec = "none")
 	plt.axhspan(0.2,0.8,0,0.2,ec = "none")
