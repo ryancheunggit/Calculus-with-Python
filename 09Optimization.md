@@ -143,4 +143,4 @@ $$\underset{a}{min}Err(a,b)=\sum_i{(y_i-ax_i-b)}^2$$
 	plt.plot(x,a*x,'red', linestyle = '--')
 	plt.plot(x,slope*x+intercept, 'blue')
 ```
-![09-04LinFit](images/09-04Linfit.png)   
+![09-04LinFit](images/09-04LinFit.png)   
