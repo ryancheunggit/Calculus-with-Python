@@ -14,7 +14,7 @@ Python部分利用到了Numpy,Matplotlib,Sympy等Library.
 ```
 
 
-更新记录：  
+TO DO List：  
 Jan.13 函数  
 Jan.14 复合函数  
 Jan.15 欧拉公式  
@@ -23,5 +23,5 @@ Jan.17 极限
 Jan.18 大O记法    
 Jan.21 导数    
 Jan.22 牛顿迭代法    
-Jan.23 优化
+Jan.23 优化     
 Jan.27 不定积分    
