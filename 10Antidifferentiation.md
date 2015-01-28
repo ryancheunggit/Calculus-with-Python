@@ -39,7 +39,9 @@ $$\int((\frac{d}{dx}F(x))dx)=F(x)+C$$
 
 ```
     print a.integrate()
-    # result is: t**3 - 3*t
+    # result is : t**3 - 3*t
+    print sympy.integrate(sympy.E**t+3*t**2)
+    # result is : t**3 + exp(t)
 ```
 
 
