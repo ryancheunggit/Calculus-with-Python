@@ -12,4 +12,5 @@
    + [牛顿迭代法](08NewtonIterMethod.md)  
    + [优化](09Optimization.md)    
    + [不定积分](10Antidifferentiation.md)  
+   + [欧拉方法](11EulerMethod.md)
 
