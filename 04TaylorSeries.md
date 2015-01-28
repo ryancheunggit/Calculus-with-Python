@@ -13,7 +13,7 @@ $$exp'(0)=exp''(0)=exp'''(0)=\dots=exp^{(k)}(0)=exp(0)=1$$
 $$exp(x)=exp(0)+\frac{exp'(0)}{1!}x+\frac{exp''(0)}{2!}x^2+\frac{exp'''(0)}{3!}x^3+\dots$$
 $$\qquad =1 + \frac{x}{1!}+\frac{x^2}{2!}+\frac{x^3}{3!}+\dots$$
 $$\qquad =\sum_{k=0}^{\infty}\frac{x^k}{k!}$$  
-便得到了在[2.1](01Functions.md)中所介绍的公式。  
+便得到了在[1.1](01Functions.md)中所介绍的公式。  
 
 类似地，有兴趣的读者可以尝试用泰勒级数的定义来推导一下$$sin(x),cos(x)$$关于$$x=0$$处展开的泰勒级数。  
 
