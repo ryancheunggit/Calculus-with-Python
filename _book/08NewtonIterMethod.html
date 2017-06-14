@@ -1,0 +1,483 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>牛顿迭代法 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="09Optimization.html" />
+    
+    
+    <link rel="prev" href="07Derivative.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    关于
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="di-yi-bu-fen-dan-yuan-wei-ji-fen.html">
+            
+                <a href="di-yi-bu-fen-dan-yuan-wei-ji-fen.html">
+            
+                    
+                    第一部分 单元微积分
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="01Functions.html">
+            
+                <a href="01Functions.html">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="02OperationOnFunctions.html">
+            
+                <a href="02OperationOnFunctions.html">
+            
+                    
+                    复合函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="03EulerFormula.html">
+            
+                <a href="03EulerFormula.html">
+            
+                    
+                    欧拉公式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="04TaylorSeries.html">
+            
+                <a href="04TaylorSeries.html">
+            
+                    
+                    泰勒级数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="05Limits.html">
+            
+                <a href="05Limits.html">
+            
+                    
+                    极限
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="06BigO.html">
+            
+                <a href="06BigO.html">
+            
+                    
+                    大O记法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="07Derivative.html">
+            
+                <a href="07Derivative.html">
+            
+                    
+                    导数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.8" data-path="08NewtonIterMethod.html">
+            
+                <a href="08NewtonIterMethod.html">
+            
+                    
+                    牛顿迭代法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="09Optimization.html">
+            
+                <a href="09Optimization.html">
+            
+                    
+                    优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="10Antidifferentiation.html">
+            
+                <a href="10Antidifferentiation.html">
+            
+                    
+                    不定积分
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="11EulerMethod.html">
+            
+                <a href="11EulerMethod.html">
+            
+                    
+                    欧拉方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="test.md">
+            
+                <span>
+            
+                    
+                    Test
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >牛顿迭代法</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x725B;&#x987F;&#x8FED;&#x4EE3;&#x6CD5;">&#x725B;&#x987F;&#x8FED;&#x4EE3;&#x6CD5;</h1>
+<h2 id="&#x6C42;&#x4E8C;&#x6B21;&#x6839;"><strong>&#x6C42;&#x4E8C;&#x6B21;&#x6839;</strong></h2>
+<p>&#x5404;&#x4F4D;&#x540C;&#x5B66;&#x53EF;&#x80FD;&#x9047;&#x5230;&#x8FC7;&#x8FD9;&#x6837;&#x7684;&#x7F16;&#x7A0B;&#x9898;&#x76EE;&#xFF0C;&#x8981;&#x6C42;&#x5728;&#x4E0D;&#x4F7F;&#x7528;<script type="math/tex; ">x^{\frac{1}{2}}</script>&#x6216;<script type="math/tex; ">\sqrt{x}</script>&#x7684;&#x524D;&#x63D0;&#x4E0B;&#xFF0C;&#x6C42;&#x89E3;<script type="math/tex; ">C</script>&#x7684;&#x6B63;&#x4E8C;&#x6B21;&#x6839;&#x3002;<br>&#x53EF;&#x4EE5;&#x7528;&#x725B;&#x987F;&#x8FED;&#x4EE3;&#x6CD5;&#x89E3;&#xFF1A;  </p>
+<pre><code>    def mysqrt(c, x = 1, maxiter = 10, prt_step = False):
+        for i in range(maxiter):
+            x = 0.5*(x+ c/x)
+            if prt_step == True:
+                # &#x5728;&#x8F93;&#x51FA;&#x65F6;&#xFF0C;{0}&#x548C;{1}&#x5C06;&#x88AB;i+1&#x548C;x&#x6240;&#x66FF;&#x4EE3;
+                print &quot;After {0} iteration, the root value is updated to {1}&quot;.format(i+1,x)
+        return x
+
+    print mysqrt(2,maxiter =4,prt_step = True)
+    # After 1 iteration, the root value is updated to 1.5
+    # After 2 iteration, the root value is updated to 1.41666666667
+    # After 3 iteration, the root value is updated to 1.41421568627
+    # After 4 iteration, the root value is updated to 1.41421356237
+    # result : 1.4142135623746899
+</code></pre><h2 id="&#x725B;&#x987F;&#x8FED;&#x4EE3;&#x6CD5;&#xFF08;newtons-itervative-method&#xFF09;"><strong>&#x725B;&#x987F;&#x8FED;&#x4EE3;&#x6CD5;&#xFF08;Newton&apos;s Itervative Method&#xFF09;</strong></h2>
+<p>&#x4E0A;&#x9762;&#x7684;&#x6C42;&#x6B63;&#x4E8C;&#x6B21;&#x6839;&#x95EE;&#x9898;&#xFF0C;&#x7B49;&#x4EF7;&#x4E8E;&#x6C42;<script type="math/tex; ">f(x)=x^2-c=0</script>&#x7684;&#x6B63;&#x6839;
+&#x6839;&#x636E;&#x4E0A;&#x4E00;&#x8282;&#x4ECB;&#x7ECD;&#x7684;&#x7EBF;&#x6027;&#x8FD1;&#x4F3C;&#xFF1A;<br><script type="math/tex; ">f(x+h)\approx f(x)+f'(x)h</script> 
+&#x5982;&#x679C;<script type="math/tex; ">x+h</script>&#x662F;<script type="math/tex; ">f(x)=0</script>&#x7684;&#x4E00;&#x4E2A;&#x6839;&#xFF0C;&#x5373;<script type="math/tex; ">f(x+h)=0</script>&#xFF0C;&#x5219;&#xFF1A;<br><script type="math/tex; ">h\approx -\frac{f(x)}{f'(x)}</script><br><script type="math/tex; ">x+h\approx x - \frac{f(x)}{f'(x)}</script>   </p>
+<p>&#x56E0;&#x6B64;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x5BF9;<script type="math/tex; ">f(x)=0</script>&#x7684;&#x6B63;&#x6839;&#x6709;&#x4E00;&#x4E2A;&#x521D;&#x59CB;&#x4F30;&#x8BA1;<script type="math/tex; ">x_0</script>&#xFF0C;&#x4FBF;&#x53EF;&#x4EE5;&#x7528;&#x4E0A;&#x9762;&#x7684;&#x8FD1;&#x4F3C;&#x4E0D;&#x65AD;&#x83B7;&#x53D6;&#x66F4;&#x52A0;&#x51C6;&#x786E;&#x7684;&#x4F30;&#x8BA1;&#x503C;&#xFF0C;&#x65B9;&#x6CD5;&#x4E3A;&#xFF1A;<br><script type="math/tex; ">x_{n+1} = x_{n} - \frac{f(x_n)}{f'_{x_n}}</script><br>&#x5C06;<script type="math/tex; ">f(x)=x^2-C</script>&#x5E26;&#x5165;&#x4E0A;&#x5F0F;&#xFF0C;&#x4FBF;&#x4F1A;&#x5F97;&#x5230;&#x4EE3;&#x7801;&#x4E2D;&#x7684;&#x8DDF;&#x65B0;&#x89C4;&#x5219;&#x4E86;&#x3002;   </p>
+<p>&#x901A;&#x8FC7;&#x7ED8;&#x56FE;&#x6211;&#x4EEC;&#x80FD;&#x8FDB;&#x4E00;&#x6B65;&#x4E86;&#x89E3;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#xFF08;&#x559C;&#x95FB;&#x4E50;&#x89C1;&#x7684;&#x7ED8;&#x56FE;&#x65F6;&#x523B;&#x53C8;&#x5230;&#x4E86;&#xFF01;&#xFF09;&#xFF1A;    </p>
+<pre><code>    f = lambda x: x**2-2*x-4
+    l1 = lambda x: 2*x-8
+    l2 = lambda x: 6*x-20
+
+    x = np.linspace(0,5,100)
+
+    plt.plot(x,f(x),&apos;black&apos;)
+    plt.plot(x[30:80],l1(x[30:80]),&apos;blue&apos;, linestyle = &apos;--&apos;)
+    plt.plot(x[66:],l2(x[66:]),&apos;blue&apos;, linestyle = &apos;--&apos;)
+
+    l = plt.axhline(y=0,xmin=0,xmax=1,color = &apos;black&apos;)
+    l = plt.axvline(x=2,ymin=2.0/18,ymax=6.0/18, linestyle = &apos;--&apos;)
+    l = plt.axvline(x=4,ymin=6.0/18,ymax=10.0/18, linestyle = &apos;--&apos;)
+
+    plt.text(1.9,0.5,r&quot;$x_0$&quot;, fontsize = 18)
+    plt.text(3.9,-1.5,r&quot;$x_1$&quot;, fontsize = 18)
+    plt.text(3.1,1.3,r&quot;$x_2$&quot;, fontsize = 18)
+
+
+    plt.plot(2,0,marker = &apos;o&apos;, color = &apos;r&apos; )
+    plt.plot(2,-4,marker = &apos;o&apos;, color = &apos;r&apos; )
+    plt.plot(4,0,marker = &apos;o&apos;, color = &apos;r&apos; )
+    plt.plot(4,4,marker = &apos;o&apos;, color = &apos;r&apos; )
+    plt.plot(10.0/3,0,marker = &apos;o&apos;, color = &apos;r&apos; )
+
+    plt.show()
+</code></pre><p><img src="images/08-01NewMeth.png" alt="08-01NewMeth">    </p>
+<p>&#x6211;&#x4EEC;&#x8981;&#x731C;<script type="math/tex; ">f(x)=x^2-2x-4=0</script>&#x7684;&#x89E3;&#xFF0C;&#x4ECE;<script type="math/tex; ">x_0=4</script>&#x7684;&#x521D;&#x59CB;&#x731C;&#x6D4B;&#x503C;&#x5F00;&#x59CB;&#xFF0C;&#x627E;&#x5230;<script type="math/tex; ">f(x)</script>&#x5728;<script type="math/tex; ">x=x_0</script>&#x5904;&#x7684;&#x5207;&#x7EBF;<script type="math/tex; ">y=2x-8</script>&#xFF0C;&#x627E;&#x5230;&#x5176;&#x4E0E;<script type="math/tex; ">y=0</script>&#x7684;&#x4EA4;&#x70B9;<script type="math/tex; ">(4,0)</script>&#xFF0C;&#x5C06;&#x8BE5;&#x4EA4;&#x70B9;&#x66F4;&#x65B0;&#x4E3A;&#x65B0;&#x7684;&#x731C;&#x6D4B;&#x7684;&#x89E3;<script type="math/tex; ">x_1=4</script>&#xFF0C;&#x5982;&#x6B64;&#x5FAA;&#x73AF;&#x3002;</p>
+<p>&#x5982;&#x4E0B;&#x5B9A;&#x4E49;&#x725B;&#x987F;&#x8FED;&#x4EE3;&#x6CD5;&#xFF1A;    </p>
+<pre><code>    def NewTon(f, s = 1, maxiter = 100, prt_step = False):
+        for i in range(maxiter):
+            # &#x76F8;&#x8F83;&#x4E8E;f.evalf(subs={x:s}),subs()&#x662F;&#x66F4;&#x597D;&#x7684;&#x5C06;&#x503C;&#x5E26;&#x5165;&#x5E76;&#x8BA1;&#x7B97;&#x7684;&#x65B9;&#x6CD5;&#x3002;
+            s = s - f.subs(x,s)/f.diff().subs(x,s)
+            if prt_step == True:
+                print &quot;After {0} iteration, the solution is updated to {1}&quot;.format(i+1,s)
+        return s
+
+    from sympy.abc import x
+    f = x**2-2*x-4
+    print NewTon(f, s = 2, maxiter = 4, prt_step = True)
+    # After 1 iteration, the solution is updated to 4
+    # After 2 iteration, the solution is updated to 10/3
+    # After 3 iteration, the solution is updated to 68/21
+    # After 4 iteration, the solution is updated to 3194/987
+    # 3194/987
+</code></pre><p>Sympy&#x53EF;&#x4EE5;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x6C42;&#x89E3;&#x65B9;&#x7A0B;&#xFF0C;&#x4E0D;&#x8981;&#x6559;&#x574F;&#x5C0F;&#x670B;&#x53CB;&#x4EEC;&#x54E6;&#xFF1A;   </p>
+<pre><code>    sympy.solve(f,x)
+    # result: [1 + sqrt(5), -sqrt(5) + 1]
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="07Derivative.html" class="navigation navigation-prev " aria-label="Previous page: 导数">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="09Optimization.html" class="navigation navigation-next " aria-label="Next page: 优化">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"牛顿迭代法","level":"1.2.8","depth":2,"next":{"title":"优化","level":"1.2.9","depth":2,"path":"09Optimization.md","ref":"09Optimization.md","articles":[]},"previous":{"title":"导数","level":"1.2.7","depth":2,"path":"07Derivative.md","ref":"07Derivative.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mathjax"],"pluginsConfig":{"mathjax":{"forceSVG":false,"version":"2.6-latest"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"08NewtonIterMethod.md","mtime":"2017-06-13T23:55:03.402Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-14T00:36:01.579Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
