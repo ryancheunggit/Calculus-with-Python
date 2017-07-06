@@ -13,3 +13,4 @@ Python部分利用到了Numpy,Matplotlib,Sympy等Library.
 	import sympy
 ```
 
+## Notice: 计划在9月移植成Python 3的Jupyter Notebook版本
