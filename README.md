@@ -13,4 +13,8 @@ Python部分利用到了Numpy,Matplotlib,Sympy等Library.
 	import sympy
 ```
 
-## Notice: 计划在9月移植成Python 3的Jupyter Notebook版本
+<strike> ## Notice: 计划在9月移植成Python 3的Jupyter Notebook版本 </strike> 
+
+Due to work/life situations, I never got chance to restart the project....
+
+Thanks [@TerenceLiu98](https://github.com/TerenceLiu98) who made some adapted jupyter notebooks, you can view them [here](https://github.com/TerenceLiu98/Self_Study)
